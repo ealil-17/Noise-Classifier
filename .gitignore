@@ -1,4 +1,3 @@
 virtual_env
 dataset
-label_encoder.pkl
-urbansound8k_model.h5
+test_code.py
