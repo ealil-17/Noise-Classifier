@@ -1,6 +1,6 @@
-# ------------------------------
+
 # Real-Time Noisy Environment Sound Classifier - Training Script
-# ------------------------------
+
 
 import os
 import librosa
@@ -13,23 +13,22 @@ from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.utils import to_categorical
 from tqdm import tqdm
 
-# ------------------------------
-# Step 1: Paths
-# ------------------------------
+# Paths
+
 
 DATASET_PATH = "Backend/model/dataset/UrbanSound8k"  # Path to the audio folder
 METADATA_PATH = "Backend/model/dataset/UrbanSound8K.csv"  # Path to metadata CSV
 
-# ------------------------------
-# Step 2: Load metadata
-# ------------------------------
+
+#Load metadata
+
 
 metadata = pd.read_csv(METADATA_PATH)
 print("Total samples in dataset:", len(metadata))
 
-# ------------------------------
-# Step 3: Feature Extraction (MFCC)
-# ------------------------------
+
+# Feature Extraction (MFCC)
+
 
 def extract_features(file_path):
     try:
@@ -55,9 +54,9 @@ for index, row in tqdm(metadata.iterrows(), total=len(metadata)):
 features_df = pd.DataFrame(features, columns=["feature", "label"])
 print(features_df.head())
 
-# ------------------------------
-# Step 4: Prepare Training Data
-# ------------------------------
+
+# Prepare Training Data
+
 
 X = np.array(features_df['feature'].tolist())
 y = np.array(features_df['label'].tolist())
@@ -75,9 +74,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 print("Training samples:", X_train.shape[0])
 print("Testing samples:", X_test.shape[0])
 
-# ------------------------------
-# Step 5: Build Neural Network
-# ------------------------------
+
+# Build Neural Network
 
 model = Sequential([
     Dense(256, input_shape=(40,), activation='relu'),
@@ -90,9 +88,8 @@ model = Sequential([
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 model.summary()
 
-# ------------------------------
-# Step 6: Train the Model
-# ------------------------------
+# Train the Model
+
 
 history = model.fit(
     X_train, y_train,
@@ -101,15 +98,14 @@ history = model.fit(
     validation_data=(X_test, y_test)
 )
 
-# ------------------------------
-# Step 7: Save the Model
-# ------------------------------
+# Save the Model
+
 
 model.save("urbansound8k_model.h5")
-print("✅ Model saved as urbansound8k_model.h5")
+print("Model saved as urbansound8k_model.h5")
 
 # Also save label encoder to map predictions back to class names
 import pickle
 with open("label_encoder.pkl", "wb") as f:
     pickle.dump(le, f)
-print("✅ Label encoder saved as label_encoder.pkl")
+print("Label encoder saved as label_encoder.pkl")
