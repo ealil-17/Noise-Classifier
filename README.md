@@ -21,21 +21,22 @@ This project uses deep learning to classify environmental sounds from the UrbanS
 ```
 Noise_Classifier/
 ├── Backend/
+|   ├── Model_traning.py 
 │   ├── model/
-│   │   ├── model_training.py      # Model training script
-│   │   ├── test_code.py          # Testing utilities
 │   │   ├── label_encoder.pkl     # Trained label encoder
 │   │   └── urbansound8k_model.h5 # Trained model
-│   └── dataset/
-│       ├── UrbanSound8K.csv     # Dataset metadata
-│       └── UrbanSound8k/        # Audio files (fold1-fold10)
+|   | 
 ├── Frontend/
+<<<<<<< HEAD
 │   ├── app.py                   # Main web application
 │   ├── requirements.txt         # Python dependencies
 │   └── _assets/                 # Static assets
 ├── virtual_env/                 # Python virtual environment
 ├── label_encoder.pkl           # Label encoder (copy)
 ├── urbansound8k_model.h5       # Trained model (copy)
+=======
+│   ├── streamlit_app.py         # Main web application
+>>>>>>> 68cca62b6d21fc26cc07abe215f17d2107077325
 └── README.md
 ```
 
@@ -74,7 +75,7 @@ source virtual_env/bin/activate
 ### Step 3: Install Dependencies
 ```bash
 cd Frontend
-pip install -r requirements.txt
+pip install tensorflow streamlit librosa numpy scikit-learn audio-recorder-streamlit
 ```
 
 ### Step 4: Verify Model Files
@@ -92,10 +93,14 @@ If missing, copy them from `Backend/model/` directory.
 cd /path/to/Noise_Classifier
 
 # Run the Streamlit app
+<<<<<<< HEAD
 streamlit run app.py
+=======
+streamlit run Frontend/app.py
+>>>>>>> 68cca62b6d21fc26cc07abe215f17d2107077325
 ```
 
-The application will start and open in your default web browser at `http://localhost:8501`
+The application will start and open in your default web browser at `http://localhost:port`
 
 ### Using the Application
 
@@ -137,11 +142,6 @@ cd Backend/model
 python model_training.py
 ```
 
-### Testing the Model
-```bash
-cd Backend/model
-python test_code.py
-```
 
 ## 📋 Requirements
 
@@ -153,7 +153,7 @@ Main dependencies include:
 - scikit-learn
 - audio-recorder-streamlit
 
-See `Frontend/requirements.txt` for complete list.
+
 
 ## 🤝 Contributing
 
