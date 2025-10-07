@@ -137,11 +137,6 @@ cd Backend/model
 python model_training.py
 ```
 
-### Testing the Model
-```bash
-cd Backend/model
-python test_code.py
-```
 
 ## 📋 Requirements
 
@@ -153,7 +148,7 @@ Main dependencies include:
 - scikit-learn
 - audio-recorder-streamlit
 
-See `Frontend/requirements.txt` for complete list.
+
 
 ## 🤝 Contributing
 
