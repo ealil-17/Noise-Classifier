@@ -153,7 +153,6 @@ Main dependencies include:
 - scikit-learn
 - audio-recorder-streamlit
 
-See `Frontend/requirements.txt` for complete list.
 
 ## 🤝 Contributing
 
