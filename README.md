@@ -30,7 +30,7 @@ Noise_Classifier/
 │       ├── UrbanSound8K.csv     # Dataset metadata
 │       └── UrbanSound8k/        # Audio files (fold1-fold10)
 ├── Frontend/
-│   ├── streamlit_app.py         # Main web application
+│   ├── app.py                   # Main web application
 │   ├── requirements.txt         # Python dependencies
 │   └── _assets/                 # Static assets
 ├── virtual_env/                 # Python virtual environment
@@ -92,7 +92,7 @@ If missing, copy them from `Backend/model/` directory.
 cd /path/to/Noise_Classifier
 
 # Run the Streamlit app
-streamlit run Frontend/streamlit_app.py
+streamlit run app.py
 ```
 
 The application will start and open in your default web browser at `http://localhost:8501`
