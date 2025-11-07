@@ -27,16 +27,13 @@ Noise_Classifier/
 │   │   └── urbansound8k_model.h5 # Trained model
 |   | 
 ├── Frontend/
-<<<<<<< HEAD
 │   ├── app.py                   # Main web application
 │   ├── requirements.txt         # Python dependencies
 │   └── _assets/                 # Static assets
 ├── virtual_env/                 # Python virtual environment
 ├── label_encoder.pkl           # Label encoder (copy)
 ├── urbansound8k_model.h5       # Trained model (copy)
-=======
 │   ├── streamlit_app.py         # Main web application
->>>>>>> 68cca62b6d21fc26cc07abe215f17d2107077325
 └── README.md
 ```
 
@@ -93,11 +90,8 @@ If missing, copy them from `Backend/model/` directory.
 cd /path/to/Noise_Classifier
 
 # Run the Streamlit app
-<<<<<<< HEAD
 streamlit run app.py
-=======
 streamlit run Frontend/app.py
->>>>>>> 68cca62b6d21fc26cc07abe215f17d2107077325
 ```
 
 The application will start and open in your default web browser at `http://localhost:port`
